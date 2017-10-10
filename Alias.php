@@ -1,6 +1,6 @@
 <?php
 /**
- * StupidlySimple Framework - A PHP Framework For Lazy Developers
+ * StupidlySimple Framework - A PHP Framework For Lazy Developers.
  *
  * Copyright (c) 2017 Fariz Luqman
  *
@@ -22,40 +22,37 @@
  * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
- * @package     StupidlySimple
  * @author      Fariz Luqman <fariz.fnb@gmail.com>
  * @copyright   2017 Fariz Luqman
  * @license     MIT
+ *
  * @link        https://stupidlysimple.github.io/
  */
 
 namespace Simplyfier;
 
-use Simplyfier\Config;
-
 /**
  * The Alias Manager
- * -----------------------------------------------------------------------
+ * -----------------------------------------------------------------------.
  *
  * Register the array of class aliases when this application
  * is started.
  *
  * @since 0.5.0
- *
  */
 class Alias
 {
-
-    static private $config = null;
+    private static $config = null;
 
     /**
      * Reads the configuration file (config/aliases.php) and create the
-     * alias
+     * alias.
      *
      * @static
+     *
      * @since 0.5.0
      */
-    static function loadAliases()
+    public static function loadAliases()
     {
         if (self::$config === null) {
             self::$config = Config::get('aliases');
@@ -64,6 +61,5 @@ class Alias
         foreach (self::$config as $class => $alias) {
             class_alias($class, $alias);
         }
-
     }
 }
